@@ -26,13 +26,11 @@ export class HeaderBar extends React.Component {
       let register;
       if (this.props.loggedIn) {
           logOutButton = (
-            <li>
               <div onClick={() => this.logOut()}>
                 <a href='/'>
                   Log out
                 </a>
               </div>
-            </li>
           );
       }
       if (!this.props.loggedIn) {
@@ -44,7 +42,7 @@ export class HeaderBar extends React.Component {
                 </div>
             )
         }
-        if (!this.props.currentUser) {
+        if (!this.props.loggedIn) {
             register = (
                 <div onClick={() => this.register()}>
                   <a href='/register'>
@@ -64,7 +62,7 @@ export class HeaderBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.loggedIn,
+    loggedIn: state.auth.currentUser,
     currentUser:  state.auth.currentUser,
 
 });

@@ -19,6 +19,7 @@ export class LoginForm extends React.Component {
             );
         }
         return (
+          <div>
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
@@ -45,6 +46,7 @@ export class LoginForm extends React.Component {
                     Log in
                 </button>
             </form>
+          </div>
         );
     }
 }

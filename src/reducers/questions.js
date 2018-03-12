@@ -1,10 +1,17 @@
 import {
     FETCH_PROTECTED_DATA_SUCCESS,
     FETCH_PROTECTED_DATA_ERROR
-} from '../actions/protected-data';
+} from '../actions/questions';
 
 const initialState = {
-    data: '',
+    question:  {
+      image: null,
+      answer: null,
+      next: null,
+      position: null,
+      correctCnt: null,
+      incorrectCnt: null,
+    },
     error: null
 };
 

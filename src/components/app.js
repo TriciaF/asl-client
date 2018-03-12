@@ -4,7 +4,8 @@ import {Route, withRouter} from 'react-router-dom';
 
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
-import Dashboard from './dashboard';
+// import Dashboard from './dashboard';
+import QuestionForm from './question-form';
 import RegistrationPage from './registration-page';
 import LoginForm from './login-form';
 import {refreshAuthToken} from '../actions/auth';
@@ -14,6 +15,7 @@ export class App extends React.Component {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
             this.startPeriodicRefresh();
+            this.props.history.push('/dashboard')
         } else if (prevProps.loggedIn && !this.props.loggedIn) {
             // Stop refreshing when we log out
             this.stopPeriodicRefresh();
@@ -45,7 +47,7 @@ export class App extends React.Component {
                 <HeaderBar />
                 <Route exact path="/" component={LandingPage}/>
                 <Route exact path="/login" component={LoginForm} />
-                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/dashboard" component={QuestionForm} />
                 <Route exact path="/register" component={RegistrationPage} />
             </div>
         );
@@ -53,8 +55,8 @@ export class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    hasAuthToken: state.auth.authToken !== null,
-    loggedIn: state.auth.currentUser !== null
+    hasAuthToken: state.auth.authToken,
+    loggedIn: state.auth.currentUser
 });
 
 // Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
