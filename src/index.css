@@ -4,6 +4,13 @@
         font-family: Verdana;
     }
     
+    .app {
+        display: flex;
+        flex-direction: column;
+        justify-content: top;
+        justify-content: space-around;
+    }
+    
     .header-bar,
     a {
         float: right;
@@ -12,6 +19,10 @@
         padding: 14px 18px;
         font-size: 18px;
         font-weight: bold;
+    }
+    
+    a {
+        margin-right: 20px;
     }
     
     .header-bar {
@@ -26,6 +37,9 @@
     }
     
     .login-form {
+        display: flex;
+        flex-direction: column;
+        flex-direction: space-around;
         background-color: #AAAAAA;
         margin: auto;
         width: 30%;
@@ -35,11 +49,18 @@
     
     .question-form {
         background-color: #AAAAAA;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         display: table;
         margin: auto;
     }
     
-    input,
+    #input,
     .answer-button {
+        text-align: center
+    }
+    
+    .form-input {
         margin: auto;
     }
