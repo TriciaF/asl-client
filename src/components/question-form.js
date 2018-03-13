@@ -2,18 +2,17 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import QuestionInput from './question-input';
 import {required, nonEmpty} from '../validators';
+import {sendAnswer} from '../actions/questions';
 
 export class QuestionForm extends React.Component {
 
-    onSubmit(event) {
-      event.preventDefault();
-      const answer = event.target.answer.value;
-      console.log(answer);
-      // return this.props.dispatch(login(username, password));
+    onSubmit(values) {
+      console.log('Enter onSubmit in QuestionForm, values ', values);
+      return this.props.dispatch(sendAnswer(values));
     }
 
     render() {
-      console.log('Enter LoginForm component');
+      console.log('Enter QuestionForm component');
         let error;
         if (this.props.error) {
             error = (
@@ -26,9 +25,11 @@ export class QuestionForm extends React.Component {
         return (
             <form
                 className="question-form"
-                onSubmit={e => this.onSubmit(e)}>
+                onSubmit={this.props.handleSubmit(values =>
+                  this.onSubmit(values)
+              )}>
                 {error}
-                <img src='https://i.imgur.com/QVByr5l.png' alt="question"/>
+                <img src={this.props.image} alt="question"/>
                 <Field
                     component={QuestionInput}
                     type="text"

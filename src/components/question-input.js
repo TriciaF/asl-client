@@ -29,6 +29,8 @@ export default class QuestionInput extends React.Component {
                     placeholder={this.props.placeholder}
                     ref={input => (this.input = input)}
                 />
+                {error}
+                {warning}
             </div>
         );
     }

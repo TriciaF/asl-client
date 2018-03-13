@@ -2,70 +2,50 @@
     "image": "https://i.imgur.com/QVByr5l.png",
     "answer": "a",
     "postion": null,
-    "next": null,
-    "correctCnt": null,
-    "incorrectCnt": null
+    "correctAnswer": null
 }, {
     "image": "https://i.imgur.com/tv4s5uF.png",
     "answer": "b",
     "postion": null,
-    "next": null,
-    "correctCnt": null,
-    "incorrectCnt": null
+    "correctAnswer": null
 }, {
     "image": "https://i.imgur.com/649Jbp9.png",
     "answer": "c",
     "postion": null,
-    "next": null,
-    "correctCnt": null,
-    "incorrectCnt": null
+    "correctAnswer": null
 }, {
     "image": "https://i.imgur.com/H6QFKHN.png",
     "answer": "d",
     "postion": null,
-    "next": null,
-    "correctCnt": null,
-    "incorrectCnt": null
+    "correctAnswer": null
 }, {
     "image": "https://i.imgur.com/IY2K1ow.png",
     "answer": "e",
     "postion": null,
-    "next": null,
-    "correctCnt": null,
-    "incorrectCnt": null
+    "correctAnswer": null
 }, {
     "image": "https://i.imgur.com/cnN4yZj.png",
     "answer": "f",
     "postion": null,
-    "next": null,
-    "correctCnt": null,
-    "incorrectCnt": null
+    "correctAnswer": null
 }, {
     "image": "https://i.imgur.com/DV2OSgS.png",
     "answer": "g",
     "postion": null,
-    "next": null,
-    "correctCnt": null,
-    "incorrectCnt": null
+    "correctAnswer": null
 }, {
     "image": "https://i.imgur.com/JRtuOU5.png",
     "answer": "h",
     "postion": null,
-    "next": null,
-    "correctCnt": null,
-    "incorrectCnt": null
+    "correctAnswer": null
 }, {
     "image": "https://i.imgur.com/qrVzVFP.png",
     "answer": "i",
     "postion": null,
-    "next": null,
-    "correctCnt": null,
-    "incorrectCnt": null
+    "correctAnswer": null
 }, {
     "image": "https://i.imgur.com/Ng80TmO.png",
     "answer": "j",
     "postion": null,
-    "next": null,
-    "correctCnt": null,
-    "incorrectCnt": null
+    "correctAnswer": null
 }]
