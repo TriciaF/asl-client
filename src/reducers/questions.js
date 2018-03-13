@@ -13,15 +13,17 @@ const initialState = {
 };
 
 export default function reducer(state = initialState, action) {
+  console.log("Enter fetchQuestionInit")
  if(action.type === FETCH_QUESTION_INIT) {
    return Object.assign({}, state, {
      loading: true
    });
  } else if (action.type === FETCH_QUESTION_SUCCESS) {
-   console.log('enter fetchQuestionSuccess ', action)
+   console.log('Enter fetchQuestionSuccess ', action)
    return Object.assign({}, state, {
      image: action.image.image,
      answer: action.image.answer,
+     isCorrect: action.image.correctAnswer,
      error: false,
      loading: false 
    });

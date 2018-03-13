@@ -7,7 +7,6 @@ import {sendAnswer} from '../actions/questions';
 export class QuestionForm extends React.Component {
 
     onSubmit(values) {
-      console.log('Enter onSubmit in QuestionForm, values ', values);
       return this.props.dispatch(sendAnswer(values));
     }
 

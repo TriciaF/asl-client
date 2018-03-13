@@ -26,22 +26,22 @@ const questions = [{
 	'image': 'https://i.imgur.com/QVByr5l.png',
 	'answer': 'a',
 	'postion': null,
-	'correctAnswer': null
+	'correctAnswer': 'a'
 }, {
 	'image': 'https://i.imgur.com/tv4s5uF.png',
 	'answer': 'b',
 	'postion': null,
-	'correctAnswer': null
+	'correctAnswer':'b' 
 }, {
 	'image': 'https://i.imgur.com/649Jbp9.png',
 	'answer': 'c',
 	'postion': null,
-	'correctAnswer': null
+	'correctAnswer':'c' 
 }, {
 	'image': 'https://i.imgur.com/H6QFKHN.png',
 	'answer': 'd',
 	'postion': null,
-	'correctAnswer': null
+	'correctAnswer':'d' 
 }];
 
 let questionQ = new Queue(null, null);
@@ -53,9 +53,14 @@ for (let i = 0; i < questions.length; i++) {
 app.use(express.static(path.join(__dirname, './client/public')));
 //re-Route requests to our router
 
-app.get('/api/question', (req, res) => {
+app.get('/api/users', (req, res) => {
 	console.log('Enter get api/question');
 	return res.json(questionQ.peek(questionQ));
+});
+
+app.put('api/users', (req, res)=> {
+	console.log('Enter put api/user req.body = ', req.body);
+	return res.json(questionQ.dequeue());
 });
 
 

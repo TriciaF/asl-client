@@ -9,7 +9,12 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchQuestion());
     }
 
+
     render() {
+      
+    // if(!this.props.loading){
+    //  return (this.props.dispatch(fetchQuestion()));
+    // }
       if(!this.props.error)
         return (
             <div className="dashboard">
@@ -22,7 +27,8 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => ({
   image: state.questionData.image,
   answer: state.questionData.answer,
-  error: state.questionData.error
+  error: state.questionData.error,
+  loading: state.questionData.loading
 });
 
 export default connect(mapStateToProps)(Dashboard);

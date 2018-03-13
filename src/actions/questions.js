@@ -24,9 +24,10 @@ export const fetchQuestion = () => (dispatch, getState) => {
   console.log('Enter fetchQuestion')
     const authToken = getState().auth.authToken;
     dispatch(fetchQuestionInit());
-    return fetch(`${API_BASE_URL}/question`, {
+    return fetch(`${API_BASE_URL}/users/5aa81923f7e247a6f58faf47`, {
         method: 'GET',
         headers: {
+            'content-type': 'appliction/json',
             // Provide our auth token as credentials
             Authorization: `Bearer ${authToken}`
         }
@@ -42,6 +43,34 @@ export const fetchQuestion = () => (dispatch, getState) => {
         });
 };
 
-export const sendAnswer = (answer) => (dispatch) => {
-  console.log('Enter sendAnswer')
+export const sendAnswer = (answer) => (dispatch,getState) => {
+  console.log('Enter sendAnswer', answer);
+  // const authToken = getState().auth.authToken;
+  // dispatch(fetchQuestionInit());
+  // return fetch(`${API_BASE_URL}/user`, {
+  //   method: 'PUT',
+  //   headers: {
+  //     'content-type': 'application/json',
+  //     Authorization: `Bearer ${authToken}`
+  //   },
+  //   body: JSON.stringify(answer)
+  // })
+  // .then( res => {
+  //   if(!res.ok) {
+  //     return Promise.reject(res.statusText)
+  //   }
+  // })
+  // .then(({question }) => dispatch(fetchQuestion()))
+  // .then( res => {
+  //   if(!res.ok) {
+  //     return Promise.reject(res.statusText)
+  //   }
+  // })
+  //   .then(data => {
+  //     console.log('another question back from fetch ', data);
+  //     dispatch(fetchQuestionSuccess(data))
+  //   })
+  //   .catch(err => {
+  //   dispatch(fetchQuestionError(err));
+  // })
 }
