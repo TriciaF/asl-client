@@ -7,8 +7,8 @@ import {
 const initialState = {
     image: null,
     answer: null,
-    isCorrect: false,
     error: null,
+    quesitonId: null,
     loading: false
 };
 
@@ -23,11 +23,12 @@ export default function reducer(state = initialState, action) {
    return Object.assign({}, state, {
      image: action.image.image,
      answer: action.image.answer,
-     isCorrect: action.image.correctAnswer,
+     questionId: action.image._id, 
      error: false,
      loading: false 
    });
  } else if (action.type === FETCH_QUESTION_ERROR) {
+   console.log('Enter fetchQuestionError ', action)
      return Object.assign({}, state, {
      error: action.error,
      loading: false

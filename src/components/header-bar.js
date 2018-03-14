@@ -27,7 +27,7 @@ export class HeaderBar extends React.Component {
       if (this.props.loggedIn) {
           logOutButton = (
               <div onClick={() => this.logOut()}>
-                <a href='/'>
+                <a className="nav-words" href='/'>
                   Log out
                 </a>
               </div>
@@ -36,7 +36,7 @@ export class HeaderBar extends React.Component {
       if (!this.props.loggedIn) {
           logInButton = (
                <div onClick={() => this.logIn()}>
-                  <a href='/login'>
+                  <a className="nav-words" href='/login'>
                     Log in
                   </a>
                 </div>
@@ -45,7 +45,7 @@ export class HeaderBar extends React.Component {
         if (!this.props.loggedIn) {
             register = (
                 <div onClick={() => this.register()}>
-                  <a href='/register'>
+                  <a className="nav-words" href='/register'>
                     Register
                   </a>
                </div>

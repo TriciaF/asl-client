@@ -11,40 +11,51 @@
         justify-content: space-around;
     }
     
-    .header-bar,
-    a {
-        float: right;
-        text-align: center;
-        background-color: #70D4B4;
-        padding: 14px 18px;
-        font-size: 18px;
-        font-weight: bold;
-    }
-    
-    a {
-        margin-right: 20px;
-    }
-    
     .header-bar {
+        background-color: #70D4B4;
         width: 100%;
         height: 60px;
         margin-bottom: 30px;
     }
     
-    h2 {
+    .nav-words {
+        float: right;
+        text-align: center;
+        padding: 14px 18px;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+    }
+    
+    .home {
         margin-top: 30px;
         padding: 30px;
+        text-align: center;
     }
     
     .login-form {
         display: flex;
         flex-direction: column;
         flex-direction: space-around;
-        background-color: #AAAAAA;
+        background-color: #70D4B4;
         margin: auto;
         width: 30%;
         padding: 20px;
         border: 1px solid black;
+        border-radius: 10px;
+    }
+    
+    .login-button,
+    .answer-button {
+        box-sizing: border-box;
+        background-color: black;
+        width: 150px;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        padding: 20px;
+        margin: auto;
+        font-size: 18px;
     }
     
     .question-form {
@@ -56,9 +67,13 @@
         margin: auto;
     }
     
-    #input,
-    .answer-button {
-        text-align: center
+    #username,
+    #password,
+    #answer {
+        margin: 10px;
+        border-radius: 5px;
+        height: 20px;
+        width: 170px;
     }
     
     .form-input {

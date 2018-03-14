@@ -30,9 +30,11 @@ export default function reducer(state = initialState, action) {
             error: null
         });
     } else if (action.type === AUTH_SUCCESS) {
+      console.log('enter Auth Success ', action)
         return Object.assign({}, state, {
             loading: false,
-            currentUser: action.currentUser
+            currentUser: action.currentUser.username,
+            userId: action.currentUser.id
         });
     } else if (action.type === AUTH_ERROR) {
         return Object.assign({}, state, {

@@ -20,14 +20,13 @@ export const fetchQuestionError = error => ({
     error,
 });
 
-export const fetchQuestion = () => (dispatch, getState) => {
-  console.log('Enter fetchQuestion')
+export const fetchQuestion = (userId) => (dispatch, getState) => {
+  console.log('Enter fetchQuestion, userID = ', userId)
     const authToken = getState().auth.authToken;
     dispatch(fetchQuestionInit());
-    return fetch(`${API_BASE_URL}/users/5aa81923f7e247a6f58faf47`, {
+    return fetch(`${API_BASE_URL}/users/`+ userId, {
         method: 'GET',
         headers: {
-            'content-type': 'appliction/json',
             // Provide our auth token as credentials
             Authorization: `Bearer ${authToken}`
         }
@@ -39,38 +38,29 @@ export const fetchQuestion = () => (dispatch, getState) => {
           dispatch(fetchQuestionSuccess(data));
         })
         .catch(err => {
+          console.log("fetch error  ", err)
             dispatch(fetchQuestionError(err));
         });
 };
 
-export const sendAnswer = (answer) => (dispatch,getState) => {
-  console.log('Enter sendAnswer', answer);
-  // const authToken = getState().auth.authToken;
-  // dispatch(fetchQuestionInit());
-  // return fetch(`${API_BASE_URL}/user`, {
-  //   method: 'PUT',
-  //   headers: {
-  //     'content-type': 'application/json',
-  //     Authorization: `Bearer ${authToken}`
-  //   },
-  //   body: JSON.stringify(answer)
-  // })
-  // .then( res => {
-  //   if(!res.ok) {
-  //     return Promise.reject(res.statusText)
-  //   }
-  // })
-  // .then(({question }) => dispatch(fetchQuestion()))
-  // .then( res => {
-  //   if(!res.ok) {
-  //     return Promise.reject(res.statusText)
-  //   }
-  // })
-  //   .then(data => {
-  //     console.log('another question back from fetch ', data);
-  //     dispatch(fetchQuestionSuccess(data))
-  //   })
-  //   .catch(err => {
-  //   dispatch(fetchQuestionError(err));
-  // })
+export const sendAnswer = (values) => (dispatch,getState) => {
+  const id = getState().questionData.questionId ;
+  const correct = values.answer === getState().questionData.answer ? true : false;
+  dispatch(fetchQuestionInit());
+  return fetch(`${API_BASE_URL}/users/` + id, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+    body: JSON.stringify({correct: correct})
+    },
+  })
+  .then( res => {
+    if(!res.ok) {
+      return Promise.reject(res.statusText)
+    }
+      return res.json();
+  })
+  .catch(err => {
+      dispatch(fetchQuestionError(err));
+  })
 }
