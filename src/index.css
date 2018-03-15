@@ -49,10 +49,11 @@
     .answer-button {
         box-sizing: border-box;
         background-color: black;
-        width: 150px;
+        width: 170px;
         color: white;
         border-radius: 5px;
         text-align: center;
+        vertical-align: middle;
         padding: 20px;
         margin: auto;
         font-size: 18px;
@@ -65,6 +66,10 @@
         justify-content: space-around;
         display: table;
         margin: auto;
+    }
+    
+    .dashboard {
+        background-color: #F1EFB9
     }
     
     #username,

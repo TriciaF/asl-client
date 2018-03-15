@@ -8,12 +8,12 @@ export const fetchQuestionInit = loading => ({
 });
 
 export const FETCH_QUESTION_SUCCESS = 'FETCH_QUESTION_SUCCESS';
-export const fetchQuestionSuccess = (image, answer, nextQuestion) => ({
+export const fetchQuestionSuccess = (image, answer) => ({
     type: FETCH_QUESTION_SUCCESS,
     image,
     answer,
-    nextQuestion,
 });
+console.log(fetchQuestionSuccess("some image", "some answer", "another question"));
 
 export const FETCH_QUESTION_ERROR = 'FETCH_QUESTION__ERROR';
 export const fetchQuestionError = error => ({
@@ -21,11 +21,6 @@ export const fetchQuestionError = error => ({
     error,
 });
 
-export const SET_NEXT_QUESTION = 'SET_NEXT_QUESTION';
-export const setNextQuestion = () => ({
-  type: SET_NEXT_QUESTION,
-  nextQuestion: true, 
-});
 
 export const fetchQuestion = (userId) => (dispatch, getState) => {
   console.log('Enter fetchQuestion, userID = ', userId)
@@ -42,7 +37,7 @@ export const fetchQuestion = (userId) => (dispatch, getState) => {
         .then(res => res.json())
         .then(data => {
           console.log('data back from fetch  ', data);
-          dispatch(fetchQuestionSuccess(data));
+          dispatch(fetchQuestionSuccess(data.image, data.answer));
         })
         .catch(err => {
           console.log("fetch error  ", err)
@@ -60,16 +55,21 @@ export const sendAnswer = (values) => (dispatch,getState) => {
     headers: {
       'Content-type': 'application/json'
     },
-    body: JSON.stringify({correct: true})
+    body: JSON.stringify({correct: correct})
   })
   .then( res => {
+    console.log("this is res", res)
     if(!res.ok) {
       return Promise.reject(res.statusText)
     }
-    return res.status;
+    return res.json();
   })
-  .then(({nextQuestion}) => dispatch(setNextQuestion()))
+  .then(next => {
+    console.log('next Question  ', next);
+    dispatch(fetchQuestionSuccess(next.image, next.answer));
+  })
   .catch(err => {
+    console.log('this is error ', err)
     dispatch(fetchQuestionError(err))
   }) 
 }
