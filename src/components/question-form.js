@@ -10,6 +10,7 @@ export class QuestionForm extends React.Component {
       return this.props.dispatch(sendAnswer(values));
     }
 
+
     render() {
       console.log('Enter QuestionForm component');
         let error;

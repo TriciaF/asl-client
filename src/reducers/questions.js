@@ -2,6 +2,7 @@ import {
     FETCH_QUESTION_INIT,
     FETCH_QUESTION_SUCCESS,
     FETCH_QUESTION_ERROR,
+    SET_CORRECT_ANSWER
 } from '../actions/questions';
 
 const initialState = {
@@ -9,13 +10,15 @@ const initialState = {
     answer: null,
     error: null,
     loading: false,
+    inputAnswer: false,
+    feedback: false,
+    currentAnswer: null,
 };
 
 export default function reducer(state = initialState, action) {
-  console.log("Enter fetchQuestionInit")
  if(action.type === FETCH_QUESTION_INIT) {
    return Object.assign({}, state, {
-     loading: true
+     loading: true,
    });
  } else if (action.type === FETCH_QUESTION_SUCCESS) {
    console.log('Enter fetchQuestionSuccess ', action)
@@ -24,7 +27,6 @@ export default function reducer(state = initialState, action) {
      answer: action.answer,
      error: false,
      loading: false,
-     nextQuestion: false,
    });
  } else if (action.type === FETCH_QUESTION_ERROR) {
    console.log('Enter fetchQuestionError ', action)
@@ -32,6 +34,13 @@ export default function reducer(state = initialState, action) {
      error: action.error,
      loading: false
    });
-  }
+ } else if (action.type === SET_CORRECT_ANSWER) {
+   console.log('Enter setCorrectAnswer ', action);
+   return Object.assign( {}, state, {
+     inputAnswer: action.inputAnswer,
+     currentAnswer: action.currentAnswer,
+     feedback: true
+   });
+ }
     return state;
 }

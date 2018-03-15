@@ -13,13 +13,19 @@ export const fetchQuestionSuccess = (image, answer) => ({
     image,
     answer,
 });
-console.log(fetchQuestionSuccess("some image", "some answer", "another question"));
 
 export const FETCH_QUESTION_ERROR = 'FETCH_QUESTION__ERROR';
 export const fetchQuestionError = error => ({
     type: FETCH_QUESTION_ERROR,
     error,
 });
+
+export const SET_CORRECT_ANSWER = 'SET_CORRECT_ANSWER';
+export const setCorrectAnswer = (inputAnswer, currentAnswer) => ({
+  type: SET_CORRECT_ANSWER,
+  inputAnswer,
+  currentAnswer
+})
 
 
 export const fetchQuestion = (userId) => (dispatch, getState) => {
@@ -49,6 +55,7 @@ export const sendAnswer = (values) => (dispatch,getState) => {
   console.log('Enter sendAnswer')
   const id = getState().auth.userId ;
   const correct = values.answer === getState().questionData.answer ? true : false;
+  dispatch(setCorrectAnswer(correct,getState().questionData.answer));
   dispatch(fetchQuestionInit());
   return fetch(`${API_BASE_URL}/users/` + id, {
     method: 'PUT',

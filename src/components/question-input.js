@@ -7,6 +7,7 @@ export default class QuestionInput extends React.Component {
         }
     }
 
+
     render() {
         let error;
         if (this.props.meta.touched && this.props.meta.error) {

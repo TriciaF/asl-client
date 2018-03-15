@@ -22,9 +22,10 @@ export const authRequest = () => ({
 });
 
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const authSuccess = currentUser => ({
+export const authSuccess = (currentUser, userId) => ({
     type: AUTH_SUCCESS,
-    currentUser
+    currentUser,
+    userId
 });
 
 export const AUTH_ERROR = 'AUTH_ERROR';

@@ -46,7 +46,8 @@
     }
     
     .login-button,
-    .answer-button {
+    .answer-button,
+    .next-question {
         box-sizing: border-box;
         background-color: black;
         width: 170px;
