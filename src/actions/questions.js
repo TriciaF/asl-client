@@ -8,16 +8,23 @@ export const fetchQuestionInit = loading => ({
 });
 
 export const FETCH_QUESTION_SUCCESS = 'FETCH_QUESTION_SUCCESS';
-export const fetchQuestionSuccess = (image, answer) => ({
+export const fetchQuestionSuccess = (image, answer, nextQuestion) => ({
     type: FETCH_QUESTION_SUCCESS,
     image,
-    answer
+    answer,
+    nextQuestion,
 });
 
 export const FETCH_QUESTION_ERROR = 'FETCH_QUESTION__ERROR';
 export const fetchQuestionError = error => ({
     type: FETCH_QUESTION_ERROR,
     error,
+});
+
+export const SET_NEXT_QUESTION = 'SET_NEXT_QUESTION';
+export const setNextQuestion = () => ({
+  type: SET_NEXT_QUESTION,
+  nextQuestion: true, 
 });
 
 export const fetchQuestion = (userId) => (dispatch, getState) => {
@@ -44,23 +51,25 @@ export const fetchQuestion = (userId) => (dispatch, getState) => {
 };
 
 export const sendAnswer = (values) => (dispatch,getState) => {
-  const id = getState().questionData.questionId ;
+  console.log('Enter sendAnswer')
+  const id = getState().auth.userId ;
   const correct = values.answer === getState().questionData.answer ? true : false;
   dispatch(fetchQuestionInit());
   return fetch(`${API_BASE_URL}/users/` + id, {
     method: 'PUT',
     headers: {
-      'Content-type': 'application/json',
-    body: JSON.stringify({correct: correct})
+      'Content-type': 'application/json'
     },
+    body: JSON.stringify({correct: true})
   })
   .then( res => {
     if(!res.ok) {
       return Promise.reject(res.statusText)
     }
-      return res.json();
+    return res.status;
   })
+  .then(({nextQuestion}) => dispatch(setNextQuestion()))
   .catch(err => {
-      dispatch(fetchQuestionError(err));
-  })
+    dispatch(fetchQuestionError(err))
+  }) 
 }

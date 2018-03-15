@@ -1,7 +1,8 @@
 import {
     FETCH_QUESTION_INIT,
     FETCH_QUESTION_SUCCESS,
-    FETCH_QUESTION_ERROR
+    FETCH_QUESTION_ERROR,
+    SET_NEXT_QUESTION
 } from '../actions/questions';
 
 const initialState = {
@@ -9,7 +10,8 @@ const initialState = {
     answer: null,
     error: null,
     quesitonId: null,
-    loading: false
+    loading: false,
+    nextQuestion: true,
 };
 
 export default function reducer(state = initialState, action) {
@@ -25,7 +27,8 @@ export default function reducer(state = initialState, action) {
      answer: action.image.answer,
      questionId: action.image._id, 
      error: false,
-     loading: false 
+     loading: false,
+     nextQuestion: false,
    });
  } else if (action.type === FETCH_QUESTION_ERROR) {
    console.log('Enter fetchQuestionError ', action)
@@ -33,6 +36,11 @@ export default function reducer(state = initialState, action) {
      error: action.error,
      loading: false
    });
- }
+  } else if(action.type === SET_NEXT_QUESTION) {
+    console.log('Enter setNextQuestion');
+    return Object.assign({}, state, {
+      nextQuestion: true
+    });
+  }
     return state;
 }
