@@ -7,6 +7,7 @@ import {sendAnswer} from '../actions/questions';
 export class QuestionForm extends React.Component {
 
     onSubmit(values) {
+      this.props.resetForm();
       return this.props.dispatch(sendAnswer(values));
     }
 
@@ -23,13 +24,16 @@ export class QuestionForm extends React.Component {
         }
 
         return (
+          <div className='question-form-home'>
+            <div className='image'>
+               <img src={this.props.image} alt="question"/>
+            </div>
             <form
                 className="question-form"
                 onSubmit={this.props.handleSubmit(values =>
                   this.onSubmit(values)
               )}>
                 {error}
-                <img src={this.props.image} alt="question"/>
                 <Field
                     component={QuestionInput}
                     type="text"
@@ -42,6 +46,7 @@ export class QuestionForm extends React.Component {
                    Submit 
                 </button>
             </form>
+          </div>
         );
     }
 }

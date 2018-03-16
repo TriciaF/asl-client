@@ -20,6 +20,8 @@ export class LoginForm extends React.Component {
             );
         }
         return (
+          <div className='home'>
+           <h2 className='tag-line'>Log in to get started</h2>
             <form
                 className="login-form"
                 onSubmit={this.props.handleSubmit(values =>
@@ -46,7 +48,8 @@ export class LoginForm extends React.Component {
                     Log in
                 </button>
                 <p>Don't have an account?<a href='./register'>Register here</a></p>
-            </form>
+           </form>
+         </div> 
         );
     }
 }

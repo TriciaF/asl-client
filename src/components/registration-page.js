@@ -12,7 +12,7 @@ export function RegistrationPage(props) {
     }
     return (
         <div className="home">
-            <h2>Register for American Sign Language Learning App</h2>
+            <h2 className='tag-line'>Register for the American Sign Language Learning App</h2>
             <RegistrationForm />
         </div>
     );

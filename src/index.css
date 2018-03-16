@@ -11,11 +11,40 @@
         justify-content: space-around;
     }
     
+    .about {
+        margin: auto;
+        padding-top: 15px;
+        padding-bottom: 25px;
+        height: 290px;
+        width: 520px;
+    }
+    
+    p {
+        color: black
+    }
+    
+    img {
+        height: 450px;
+        width: 250px;
+    }
+    
+    .image {
+        margin: auto;
+        height: 520px;
+        width: 100%;
+    }
+    
     .header-bar {
         background-color: #70D4B4;
         width: 100%;
         height: 60px;
         margin-bottom: 30px;
+    }
+    
+    .tag-line {
+        color: white;
+        text-align: center;
+        line-height: 28px;
     }
     
     .nav-words {
@@ -27,17 +56,25 @@
         color: black;
     }
     
-    .home {
+    .home,
+    .question-form-home {
         margin-top: 30px;
         padding: 30px;
         text-align: center;
+        background-image: url('https://i.imgur.com/3KsIOq0.jpg');
+        height: 480px;
+        width: 100%;
     }
     
-    .login-form {
-        display: flex;
-        flex-direction: column;
-        flex-direction: space-around;
+    .question-form-home {
+        height: 580px;
+        padding: 0;
+    }
+    
+    .login-form,
+    .question-form {
         background-color: #70D4B4;
+        text-align: center;
         margin: auto;
         width: 30%;
         padding: 20px;
@@ -47,7 +84,8 @@
     
     .login-button,
     .answer-button,
-    .next-question {
+    .next-question,
+    .registration-button {
         box-sizing: border-box;
         background-color: black;
         width: 170px;
@@ -60,22 +98,18 @@
         font-size: 18px;
     }
     
-    .question-form {
-        background-color: #AAAAAA;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        display: table;
-        margin: auto;
-    }
-    
     .dashboard {
-        background-color: #F1EFB9
+        background-image: url('https://i.imgur.com/3KsIOq0.jpg');
+        height: 550px;
+        width: 100%;
     }
     
     #username,
     #password,
-    #answer {
+    #answer,
+    #passwordConfirm,
+    #lastname,
+    #firstname {
         margin: 10px;
         border-radius: 5px;
         height: 20px;

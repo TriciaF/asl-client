@@ -24,32 +24,42 @@ render() {
             onSubmit={this.props.handleSubmit(values =>
                 this.onSubmit(values)
             )}>
-            <label htmlFor="firstName">First name</label>
-            <Field component={Input} type="text" name="firstName" />
-            <label htmlFor="lastName">Last name</label>
-            <Field component={Input} type="text" name="lastName" />
-            <label htmlFor="username">Username</label>
+            <Field
+                component={Input}
+                type="text"
+                name="firstname"
+                placeholder='First name'
+                validate={[required, nonEmpty, isTrimmed]}
+            />
+            <Field
+                component={Input}
+                type="text"
+                name="lastname"
+                placeholder='Last name'
+                validate={[required, nonEmpty, isTrimmed]}
+            />
             <Field
                 component={Input}
                 type="text"
                 name="username"
+                placeholder='User name'
                 validate={[required, nonEmpty, isTrimmed]}
             />
-            <label htmlFor="password">Password</label>
             <Field
                 component={Input}
                 type="password"
                 name="password"
+                placeholder='Password'
                 validate={[required, passwordLength, isTrimmed]}
             />
-            <label htmlFor="passwordConfirm">Confirm password</label>
             <Field
                 component={Input}
                 type="password"
                 name="passwordConfirm"
+                placeholder='Confirm Password'
                 validate={[required, nonEmpty, matchesPassword]}
             />
-            <button
+            <button className='registration-button'
                 type="submit"
                 disabled={this.props.pristine || this.props.submitting}>
                 Register
