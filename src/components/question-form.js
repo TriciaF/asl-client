@@ -7,13 +7,11 @@ import {sendAnswer} from '../actions/questions';
 export class QuestionForm extends React.Component {
 
     onSubmit(values) {
-      console.log("enter OnSubmit, question form")
       return this.props.dispatch(sendAnswer(values));
     }
 
 
     render() {
-      console.log('Enter QuestionForm component');
         let error;
         if (this.props.error) {
             error = (
@@ -25,13 +23,11 @@ export class QuestionForm extends React.Component {
         let feedback;
         if(this.props.feedback) {
           if(this.props.inputAnswer){
-            console.log("correctAnswer ", this.props.currentAnswer)
             feedback = (
                 <h3 className="tag-line">Correct!</h3>
             );
           }
           if(!this.props.inputAnswer) {
-            console.log('not the correct answer ', this.props.currentAnswer)
             feedback =  (
                 <h3 className="tag-line">Incorrect, the correct answer is: {this.props.currentAnswer}</h3>
             );

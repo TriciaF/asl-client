@@ -21,7 +21,6 @@ export default function reducer(state = initialState, action) {
      loading: true,
    });
  } else if (action.type === FETCH_QUESTION_SUCCESS) {
-   console.log('Enter fetchQuestionSuccess ', action)
    return Object.assign({}, state, {
      image: action.image,
      answer: action.answer,
@@ -29,13 +28,11 @@ export default function reducer(state = initialState, action) {
      loading: false,
    });
  } else if (action.type === FETCH_QUESTION_ERROR) {
-   console.log('Enter fetchQuestionError ', action)
      return Object.assign({}, state, {
      error: action.error,
      loading: false
    });
  } else if (action.type === SET_CORRECT_ANSWER) {
-   console.log('Enter setCorrectAnswer ', action);
    return Object.assign( {}, state, {
      inputAnswer: action.inputAnswer,
      currentAnswer: action.currentAnswer,

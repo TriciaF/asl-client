@@ -5,14 +5,10 @@ import {fetchQuestion} from '../actions/questions';
 
 export class Dashboard extends React.Component {
     componentWillMount() {
-      console.log('dashboard - component will mount ', this.props.nextQuestion)
       return this.props.dispatch(fetchQuestion(this.props.userId));
     }
 
     render() {
-      console.log("this is feedback ", this.props.feedback);
-      console.log('this is inputAnswer ', this.props.inputAnswer)
-      console.log("the current answer is ", this.props.currentAnswer)
        
       return (
        <div className="dashboard">

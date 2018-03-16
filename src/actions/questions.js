@@ -29,7 +29,6 @@ export const setCorrectAnswer = (inputAnswer, currentAnswer) => ({
 
 
 export const fetchQuestion = (userId) => (dispatch, getState) => {
-  console.log('Enter fetchQuestion, userID = ', userId)
     const authToken = getState().auth.authToken;
     dispatch(fetchQuestionInit());
     return fetch(`${API_BASE_URL}/users/`+ userId, {
@@ -42,17 +41,14 @@ export const fetchQuestion = (userId) => (dispatch, getState) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(data => {
-          console.log('data back from fetch  ', data);
           dispatch(fetchQuestionSuccess(data.image, data.answer));
         })
         .catch(err => {
-          console.log("fetch error  ", err)
             dispatch(fetchQuestionError(err));
         });
 };
 
 export const sendAnswer = (values) => (dispatch,getState) => {
-  console.log('Enter sendAnswer')
   const id = getState().auth.userId ;
   const correct = values.answer === getState().questionData.answer ? true : false;
   dispatch(setCorrectAnswer(correct, getState().questionData.answer));
@@ -65,18 +61,15 @@ export const sendAnswer = (values) => (dispatch,getState) => {
     body: JSON.stringify({correct: correct})
   })
   .then( res => {
-    console.log("this is res", res)
     if(!res.ok) {
       return Promise.reject(res.statusText)
     }
     return res.json();
   })
   .then(next => {
-    console.log('next Question  ', next);
     dispatch(fetchQuestionSuccess(next.image, next.answer));
   })
   .catch(err => {
-    console.log('this is error ', err)
     dispatch(fetchQuestionError(err))
   }) 
 }
