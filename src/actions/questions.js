@@ -55,7 +55,7 @@ export const sendAnswer = (values) => (dispatch,getState) => {
   console.log('Enter sendAnswer')
   const id = getState().auth.userId ;
   const correct = values.answer === getState().questionData.answer ? true : false;
-  dispatch(setCorrectAnswer(correct,getState().questionData.answer));
+  dispatch(setCorrectAnswer(correct, getState().questionData.answer));
   dispatch(fetchQuestionInit());
   return fetch(`${API_BASE_URL}/users/` + id, {
     method: 'PUT',

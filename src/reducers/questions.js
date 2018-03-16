@@ -40,7 +40,7 @@ export default function reducer(state = initialState, action) {
      inputAnswer: action.inputAnswer,
      currentAnswer: action.currentAnswer,
      feedback: true
-   });
+   })
  }
     return state;
 }

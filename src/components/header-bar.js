@@ -53,6 +53,16 @@ export class HeaderBar extends React.Component {
         }
         return (
             <div className="header-bar">
+              <div>
+                <a className="nav-words-nidcd" href='https://www.nidcd.nih.gov/health/american-sign-language'>
+                  NIDCD Website
+                </a>
+              </div>
+              <div>
+                <a className="nav-words-faq" href='http://www.signgenius.com/sign-language/sign-language-faq-introduction.shtml'>
+                  ASL FAQs
+                </a>
+              </div>
                   {register}
                   {logInButton}
                   {logOutButton}

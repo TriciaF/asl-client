@@ -12,29 +12,16 @@ export class Dashboard extends React.Component {
     render() {
       console.log("this is feedback ", this.props.feedback);
       console.log('this is inputAnswer ', this.props.inputAnswer)
-       let feedback;
-       if(this.props.feedback) {
-        if(this.props.inputAnswer){
-          console.log("correctAnswer ", this.props.currentAnswer)
-          feedback = (
-            <div>
-              <p>Correct!</p>
-            </div>
-          );
-        }
-        if(!this.props.inputAnswer) {
-          console.log('not the correct answer ', this.props.answer)
-          feedback =  (
-            <div>
-              <p>Incorrect, the correct answer is {this.props.currentAnswer}</p>
-            </div>
-          );
-        }
-    }
+      console.log("the current answer is ", this.props.currentAnswer)
+       
       return (
        <div className="dashboard">
-          <QuestionForm image={this.props.image} onSubmit={this.props.answer} error={this.props.error} />
-          {feedback}
+          <QuestionForm image={this.props.image} i
+                        onSubmit={this.props.answer} 
+                        error={this.props.error} 
+                        feedback={this.props.feedback}
+                        inputAnswer={this.props.inputAnswer}
+                        currentAnswer={this.props.currentAnswer}/>
        </div>
       );
     }

@@ -56,6 +56,16 @@
         color: black;
     }
     
+    .nav-words-nidcd,
+    .nav-words-faq {
+        float: left;
+        text-align: center;
+        padding: 14px 18px;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+    }
+    
     .home,
     .question-form-home {
         margin-top: 30px;
@@ -116,6 +126,6 @@
         width: 170px;
     }
     
-    .form-input {
-        margin: auto;
+    .feedback {
+        margin-right: 20px;
     }

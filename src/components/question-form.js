@@ -7,7 +7,7 @@ import {sendAnswer} from '../actions/questions';
 export class QuestionForm extends React.Component {
 
     onSubmit(values) {
-      this.props.resetForm();
+      console.log("enter OnSubmit, question form")
       return this.props.dispatch(sendAnswer(values));
     }
 
@@ -22,11 +22,27 @@ export class QuestionForm extends React.Component {
                 </div>
             );
         }
+        let feedback;
+        if(this.props.feedback) {
+          if(this.props.inputAnswer){
+            console.log("correctAnswer ", this.props.currentAnswer)
+            feedback = (
+                <h3 className="tag-line">Correct!</h3>
+            );
+          }
+          if(!this.props.inputAnswer) {
+            console.log('not the correct answer ', this.props.currentAnswer)
+            feedback =  (
+                <h3 className="tag-line">Incorrect, the correct answer is: {this.props.currentAnswer}</h3>
+            );
+          }
+      }
 
         return (
           <div className='question-form-home'>
             <div className='image'>
                <img src={this.props.image} alt="question"/>
+               <p>{feedback}</p>
             </div>
             <form
                 className="question-form"
