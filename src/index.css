@@ -71,7 +71,7 @@
         margin-top: 30px;
         padding: 30px;
         text-align: center;
-        background-image: url('https://i.imgur.com/3KsIOq0.jpg');
+        background-color: #153B44;
         height: 480px;
         width: 100%;
     }
@@ -109,7 +109,7 @@
     }
     
     .dashboard {
-        background-image: url('https://i.imgur.com/3KsIOq0.jpg');
+        background-color: #153B44;
         height: 550px;
         width: 100%;
     }
