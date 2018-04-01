@@ -24,12 +24,18 @@ export class QuestionForm extends React.Component {
         if(this.props.feedback) {
           if(this.props.inputAnswer){
             feedback = (
+              <div>
                 <h3 className="tag-line">Correct!</h3>
+                <h3 className='tag-line'>You have answered {this.props.numCorrect} correctly</h3>
+              </div>
             );
           }
           if(!this.props.inputAnswer) {
             feedback =  (
+              <div>
                 <h3 className="tag-line">Incorrect, the correct answer is: {this.props.currentAnswer}</h3>
+                <h3 className='tag-line'>You have answered {this.props.numCorrect} correctly</h3> 
+              </div>
             );
           }
       }
@@ -38,7 +44,7 @@ export class QuestionForm extends React.Component {
           <div className='question-form-home'>
             <div className='image'>
                <img src={this.props.image} alt="question"/>
-               <p>{feedback}</p>
+               {feedback}
             </div>
             <form
                 className="question-form"

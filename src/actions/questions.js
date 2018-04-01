@@ -21,8 +21,9 @@ export const fetchQuestionError = error => ({
 });
 
 export const SET_CORRECT_ANSWER = 'SET_CORRECT_ANSWER';
-export const setCorrectAnswer = (inputAnswer, currentAnswer) => ({
+export const setCorrectAnswer = (inputAnswer, currentAnswer, numCorrect) => ({
   type: SET_CORRECT_ANSWER,
+  numCorrect,
   inputAnswer,
   currentAnswer
 })
@@ -51,7 +52,7 @@ export const fetchQuestion = (userId) => (dispatch, getState) => {
 export const sendAnswer = (values) => (dispatch,getState) => {
   const id = getState().auth.userId ;
   const correct = values.answer === getState().questionData.answer ? true : false;
-  dispatch(setCorrectAnswer(correct, getState().questionData.answer));
+  dispatch(setCorrectAnswer(correct, getState().questionData.answer, getState().questionData.numCorrect));
   dispatch(fetchQuestionInit());
   return fetch(`${API_BASE_URL}/users/` + id, {
     method: 'PUT',

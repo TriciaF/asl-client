@@ -54,12 +54,12 @@ export class HeaderBar extends React.Component {
         return (
             <div className="header-bar">
               <div>
-                <a className="nav-words-nidcd" href='https://www.nidcd.nih.gov/health/american-sign-language' target="_blank">
+                <a className="nav-words-nidcd" href='https://www.nidcd.nih.gov/health/american-sign-language' target="_blank" rel="noopener noreferrer">
                   NIDCD Website
                 </a>
               </div>
               <div>
-                <a className="nav-words-faq" href='http://www.signgenius.com/sign-language/sign-language-faq-introduction.shtml' target="_blank">
+                <a className="nav-words-faq" href='http://www.signgenius.com/sign-language/sign-language-faq-introduction.shtml' target="_blank" rel="noopener noreferrer">
                   ASL FAQs
                 </a>
               </div>

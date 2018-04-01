@@ -13,6 +13,7 @@ const initialState = {
     inputAnswer: false,
     feedback: false,
     currentAnswer: null,
+    numCorrect: 0,
 };
 
 export default function reducer(state = initialState, action) {
@@ -33,7 +34,11 @@ export default function reducer(state = initialState, action) {
      loading: false
    });
  } else if (action.type === SET_CORRECT_ANSWER) {
+  let num = 0;
+  if(action.inputAnswer)
+    num = 1
    return Object.assign( {}, state, {
+     numCorrect: action.numCorrect + num,
      inputAnswer: action.inputAnswer,
      currentAnswer: action.currentAnswer,
      feedback: true
