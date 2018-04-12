@@ -21,12 +21,18 @@ export class QuestionForm extends React.Component {
             );
         }
         let feedback;
+        let correct;
+
         if(this.props.feedback) {
+          correct = (
+            <div>
+              <h3 className='tag-line'>You have answered {this.props.numCorrect} correctly</h3>
+            </div>
+          );
           if(this.props.inputAnswer){
             feedback = (
               <div>
                 <h3 className="tag-line">Correct!</h3>
-                <h3 className='tag-line'>You have answered {this.props.numCorrect} correctly</h3>
               </div>
             );
           }
@@ -34,17 +40,17 @@ export class QuestionForm extends React.Component {
             feedback =  (
               <div>
                 <h3 className="tag-line">Incorrect, the correct answer is: {this.props.currentAnswer}</h3>
-                <h3 className='tag-line'>You have answered {this.props.numCorrect} correctly</h3> 
               </div>
             );
           }
-      }
+       }
 
         return (
           <div className='question-form-home'>
+            {feedback}
             <div className='image'>
                <img src={this.props.image} alt="question"/>
-               {feedback}
+               {correct}
             </div>
             <form
                 className="question-form"
