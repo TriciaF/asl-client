@@ -12,11 +12,11 @@ export function LandingPage(props) {
 
     return (
         <div className="home">
-           <h1 className='tag-line'>Learning American Sign Language Alphabet</h1>
+           <h1 className='tag-line-title'>Learning American Sign Language Alphabet</h1>
              <div className='about'>
-                <h3 className='tag-line'>Sign language is based on the idea that sight is the most useful tool a deaf person has to communicate and receive information. Thus, ASL uses hand shape, position, and movement; body movements; gestures; facial expressions; and other visual cues to form its words.</h3>
-                <h3 className='tag-line'>This application uses the spaced repetition learning methology to teach the first sign language application...</h3>
-                <h1 className='tag-line'>The ASL Alphabet</h1>
+                <h3 className='tag-line-about'>Sign language is based on the idea that sight is the most useful tool a deaf person has to communicate and receive information. Thus, ASL uses hand shape, position, and movement; body movements; gestures; facial expressions; and other visual cues to form its words.</h3>
+                <h3 className='tag-line-about'>This application uses the spaced repetition learning methology to teach the first sign language application...</h3>
+                <h1 className='tag-line-title'>The ASL Alphabet</h1>
             </div>
         </div>
     );

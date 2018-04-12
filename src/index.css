@@ -1,131 +1,160 @@
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Verdana;
-    }
-    
-    .app {
-        display: flex;
-        flex-direction: column;
-        justify-content: top;
-        justify-content: space-around;
-    }
-    
-    .about {
-        margin: auto;
-        padding-top: 15px;
-        padding-bottom: 25px;
-        height: 290px;
-        width: 520px;
-    }
-    
-    p {
-        color: black
-    }
-    
-    img {
-        height: 450px;
-        width: 250px;
-    }
-    
-    .image {
-        margin: auto;
-        height: 520px;
-        width: 100%;
-    }
-    
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    justify-content: space-around;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    max-width: 520px;
+    /* padding-top: 15px;
+padding-bottom: 25px;
+height: 290px;
+width: 520px; */
+}
+
+p {
+    color: black
+}
+
+img {
+    height: 450px;
+    width: 250px;
+}
+
+.image {
+    margin: auto;
+    height: 520px;
+    width: 100%;
+}
+
+.header-bar {
+    background-color: #70D4B4;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 30px;
+}
+
+.tag-line,
+.tag-line-title {
+    color: white;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.tag-line-about {
+    color: white;
+    font-weight: 100;
+    font-stretch: expanded;
+}
+
+.nav-words {
+    float: right;
+    text-align: center;
+    padding: 14px 18px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.nav-words-nidcd,
+.nav-words-faq {
+    float: left;
+    text-align: center;
+    padding: 14px 18px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.home,
+.question-form-home {
+    margin-top: 30px;
+    padding: 30px;
+    text-align: center;
+    background-color: #153B44;
+    height: 480px;
+    width: 100%;
+}
+
+.question-form-home {
+    height: 580px;
+    padding: 0;
+}
+
+.login-form,
+.question-form {
+    background-color: #70D4B4;
+    text-align: center;
+    margin: auto;
+    width: 30%;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.login-button,
+.answer-button,
+.next-question,
+.registration-button {
+    box-sizing: border-box;
+    background-color: black;
+    width: 170px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 20px;
+    margin: auto;
+    font-size: 18px;
+}
+
+.dashboard {
+    background-color: #153B44;
+    height: 550px;
+    width: 100%;
+}
+
+#username,
+#password,
+#answer,
+#passwordConfirm,
+#lastname,
+#firstname {
+    margin: 10px;
+    border-radius: 5px;
+    height: 20px;
+    width: 170px;
+}
+
+.feedback {
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 400px) {
     .header-bar {
-        background-color: #70D4B4;
+        display: flex;
         width: 100%;
-        height: 60px;
-        margin-bottom: 30px;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: start;
     }
-    
-    .tag-line {
-        color: white;
-        text-align: center;
-        line-height: 28px;
-    }
-    
-    .nav-words {
-        float: right;
-        text-align: center;
-        padding: 14px 18px;
+    .nav-words,
+    .nav-words-faq,
+    .nav-words-fda {
+        padding: 5px;
         font-size: 18px;
-        font-weight: bold;
-        color: black;
+        margin-top: 10px;
     }
-    
-    .nav-words-nidcd,
-    .nav-words-faq {
-        float: left;
-        text-align: center;
-        padding: 14px 18px;
-        font-size: 18px;
-        font-weight: bold;
-        color: black;
-    }
-    
-    .home,
-    .question-form-home {
-        margin-top: 30px;
-        padding: 30px;
-        text-align: center;
-        background-color: #153B44;
-        height: 480px;
-        width: 100%;
-    }
-    
-    .question-form-home {
-        height: 580px;
-        padding: 0;
-    }
-    
-    .login-form,
-    .question-form {
-        background-color: #70D4B4;
-        text-align: center;
-        margin: auto;
-        width: 30%;
-        padding: 20px;
-        border: 1px solid black;
-        border-radius: 10px;
-    }
-    
-    .login-button,
-    .answer-button,
-    .next-question,
-    .registration-button {
-        box-sizing: border-box;
-        background-color: black;
-        width: 170px;
-        color: white;
-        border-radius: 5px;
-        text-align: center;
-        vertical-align: middle;
-        padding: 20px;
-        margin: auto;
-        font-size: 18px;
-    }
-    
-    .dashboard {
-        background-color: #153B44;
-        height: 550px;
-        width: 100%;
-    }
-    
-    #username,
-    #password,
-    #answer,
-    #passwordConfirm,
-    #lastname,
-    #firstname {
-        margin: 10px;
-        border-radius: 5px;
-        height: 20px;
-        width: 170px;
-    }
-    
-    .feedback {
-        margin-right: 20px;
-    }
+}
