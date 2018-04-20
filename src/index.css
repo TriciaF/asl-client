@@ -180,3 +180,55 @@ img {
         width: 80%;
     }
 }
+
+@media screen and (min-width: 414px) and (max-width: 736px) {
+    .header-bar {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+    .nav-words,
+    .nav-words-faq,
+    .nav-words-nidcd {
+        padding: 5px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+    .home {
+        height: 550px;
+        font-size: smaller;
+    }
+    .login-form,
+    .question-form {
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .header-bar {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+    .nav-words,
+    .nav-words-faq,
+    .nav-words-nidcd {
+        padding: 5px;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .home {
+        height: 550px;
+        font-size: smaller;
+    }
+    .login-form,
+    .question-form {
+        width: 80%;
+    }
+}
