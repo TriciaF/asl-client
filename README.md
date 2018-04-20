@@ -1,6 +1,6 @@
 # ASL Learning Application using the Spaced Repetition learning methodology
 
-# Learning ASL Alphabet Link: https:/learning-asl-alphabet.netlify.com/
+# Learning ASL Alphabet Link: [https:/learning-asl-alphabet.netlify.com/]
 
 
 # Pitch
