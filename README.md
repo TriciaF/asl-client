@@ -7,7 +7,11 @@ https://learning-asl-alphabet.netlify.com
 # Pitch
 The ASL Leaning application allows users to learn the ASL alphabet.  The application uses the spaced-repetition learning methodology which presents users with questions they get wrong, more frequently, vs the questions they get correct.
 
+## Screenshots
 
+![alt text](/public/ASL1.jpg?raw=true "Main page")
+
+![alt text](/public/ASL2.jpg?raw=true "Learning page")
 
 ## Technology
 ### Front-End
