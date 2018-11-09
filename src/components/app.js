@@ -1,11 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
+
 import Dashboard from './dashboard';
 import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import RegistrationPage from './registration-page';
 import LoginForm from './login-form';
+import Demo from './demo';
+
 import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {
@@ -44,6 +47,7 @@ export class App extends React.Component {
             <div className="app">
                 <HeaderBar />
                 <Route exact path="/" component={LandingPage}/>
+                <Route exact path="/demo" component={Demo} />
                 <Route exact path="/login" component={LoginForm} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/dashboard" component={Dashboard} />

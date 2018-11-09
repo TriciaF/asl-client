@@ -2,28 +2,44 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+
+import Dashboard from './dashboard';
 import LoginForm from './login-form';
+import {login} from '../actions/auth';
 
 export class HeaderBar extends React.Component {
+
+    demo() {
+       this.props.dispatch(login('demo', 'demodemodemo'));
+       return <Dashboard />
+    }
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
     }
     logIn() {
-        // this.props.dispatch(showLoginForm());
         return <LoginForm /> 
-  }
-
-  register(){
-      // this.props.dispatch(showRegistrationForm())
+    }
+    register() {
       return <div>register</div>
-  }
+    }
 
   render() {
       // Only render the log out button if we are logged in
       let logOutButton;
       let logInButton;
       let register;
+      let demoButton;
+
+      if (this.props.demo) {
+          demoButton = (
+              <div onClick={() => this.demo()}>
+                <a className="nav-words" href='/dashboard'>
+                    Demo
+                </a>
+              </div>
+          );
+      }
       if (this.props.loggedIn) {
           logOutButton = (
               <div onClick={() => this.logOut()}>
@@ -40,16 +56,16 @@ export class HeaderBar extends React.Component {
                     Log in
                   </a>
                 </div>
-            )
+            );
         }
         if (!this.props.loggedIn) {
             register = (
                 <div onClick={() => this.register()}>
-                  <a className="nav-words" href='/register'>
+                    <a className="nav-words" href='/register'>
                     Register
-                  </a>
-               </div>
-            )
+                    </a>
+                </div>
+            );
         }
         return (
             <div className="header-bar">
@@ -63,6 +79,7 @@ export class HeaderBar extends React.Component {
                   ASL FAQs
                 </a>
               </div>
+                  {demoButton}
                   {register}
                   {logInButton}
                   {logOutButton}
@@ -72,6 +89,7 @@ export class HeaderBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    demo: state.questionData.demo,
     loggedIn: state.auth.currentUser,
     currentUser:  state.auth.currentUser,
 

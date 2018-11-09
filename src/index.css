@@ -97,13 +97,8 @@ img {
     /* padding: 30px; */
     text-align: center;
     background-color: #153B44;
-    height: 480px;
+    height: 680px;
     width: 100%;
-}
-
-.question-form-home {
-    height: 580px;
-    padding: 0;
 }
 
 .login-form,
