@@ -5,6 +5,7 @@ import {fetchQuestion} from '../actions/questions';
 
 export class Dashboard extends React.Component {
     componentWillMount() {
+      console.log('userID = ', this.props.userId);
       return this.props.dispatch(fetchQuestion(this.props.userId));
     }
 

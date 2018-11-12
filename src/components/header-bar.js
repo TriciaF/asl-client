@@ -3,15 +3,13 @@ import {connect} from 'react-redux';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
-import Dashboard from './dashboard';
 import LoginForm from './login-form';
 import {login} from '../actions/auth';
 
 export class HeaderBar extends React.Component {
 
     demo() {
-       this.props.dispatch(login('demo', 'demodemodemo'));
-       return <Dashboard />
+      return this.props.dispatch(login('demo', 'demodemodemo'));
     }
     logOut() {
         this.props.dispatch(clearAuth());
@@ -34,7 +32,7 @@ export class HeaderBar extends React.Component {
       if (this.props.demo) {
           demoButton = (
               <div onClick={() => this.demo()}>
-                <a className="nav-words" href='/dashboard'>
+                <a className="nav-words" href='/demo' >
                     Demo
                 </a>
               </div>
@@ -79,7 +77,7 @@ export class HeaderBar extends React.Component {
                   ASL FAQs
                 </a>
               </div>
-                  {demoButton}
+                  
                   {register}
                   {logInButton}
                   {logOutButton}
@@ -89,7 +87,7 @@ export class HeaderBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    demo: state.questionData.demo,
+    demo: state.auth.demo = true,
     loggedIn: state.auth.currentUser,
     currentUser:  state.auth.currentUser,
 

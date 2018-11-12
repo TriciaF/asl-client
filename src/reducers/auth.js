@@ -7,6 +7,7 @@ import {
 } from '../actions/auth';
 
 const initialState = {
+    demo: false,
     authToken: null, // authToken !== null does not mean it has been validated
     currentUser: null,
     userId: null,

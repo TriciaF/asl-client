@@ -6,7 +6,6 @@ import {
 } from '../actions/questions';
 
 const initialState = {
-    demo: true,
     image: null,
     answer: null,
     error: null,

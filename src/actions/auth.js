@@ -37,13 +37,16 @@ export const authError = error => ({
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {
+    console.log('authToken = ', authToken);
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken));
+    console.log('user = ', decodedToken.user);
     dispatch(authSuccess(decodedToken.user));
     saveAuthToken(authToken);
 };
 
 export const login = (username, password) => dispatch => {
+    console.log('username, password = ', username, password);
 dispatch(authRequest());
   return (
     fetch(`${API_BASE_URL}/auth/login`, {
@@ -59,7 +62,10 @@ dispatch(authRequest());
     // Reject any requests which don't return a 200 status, creating
     // errors which follow a consistent format
     .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
+    .then(res => {
+        res.json();
+        console.log('response = ', res);
+    })
     .then(({authToken}) => storeAuthInfo(authToken, dispatch)) 
     .catch(err => {
         const {code} = err;
