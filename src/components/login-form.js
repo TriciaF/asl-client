@@ -18,6 +18,7 @@ export class LoginForm extends React.Component {
                 </div>
             );
         }
+        
         return (
           <div className='home'>
            <h2 className='tag-line'>Log in to get started</h2>
@@ -57,3 +58,4 @@ export default reduxForm({
     form: 'login',
     onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
 })(LoginForm);
+

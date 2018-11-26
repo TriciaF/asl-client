@@ -4,12 +4,12 @@ import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 
 import LoginForm from './login-form';
-import {login} from '../actions/auth';
+import DemoLoginForm from './demo';
 
 export class HeaderBar extends React.Component {
 
     demo() {
-      return this.props.dispatch(login('demo', 'demodemodemo'));
+      return <DemoLoginForm />
     }
     logOut() {
         this.props.dispatch(clearAuth());
@@ -77,7 +77,7 @@ export class HeaderBar extends React.Component {
                   ASL FAQs
                 </a>
               </div>
-                  
+                  {demoButton} 
                   {register}
                   {logInButton}
                   {logOutButton}
